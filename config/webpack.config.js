@@ -5,13 +5,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin'),
 
 const webpackConfig = {
     mode: process.env.NODE_ENV,
-    entry: path.resolve(src, 'index.js'),
+    entry: path.resolve(src, 'index.tsx'),
     output: {
         path: dist,
         filename: 'bundle.js',
         publicPath: '/'
     },
-    devtool: 'inline-source-map',
+    // devtool: 'inline-source-map',
     devServer: {
         open: true, // 自动打开浏览器
         port: 3000, // devServer对应的端口号
@@ -19,16 +19,24 @@ const webpackConfig = {
         inline: true
     },
     module: {
-        // rules: [{
-        //     test: /\.(js|ts)$/,
-        //     exclude: /(node_modules|dist)/,
-        //     use: {
-        //         loader: 'babel-loader',
-        //         options: {
-        //             presets: ['env', 'es2015']
-        //         }
-        //     }
-        // }]
+        rules: [{
+            test: /\.(js|ts|jsx|tsx)$/,
+            exclude: /(node_modules|dist)/,
+            use: {
+                loader: 'babel-loader',
+                options: {
+                    presets: ['env', 'es2015', 'react']
+                }
+            }
+        }]
+    },
+    resolve: {
+        modules: [
+            //优先找src目录下的业务模块，没有才去node_modules里找静态包
+            src,
+            node_modules
+        ],
+        extensions: ['.js', '.json', '.jsx', '.css', '.ts', '.tsx']
     },
     plugins: [
         new HtmlWebpackPlugin({
