@@ -25,7 +25,7 @@ const webpackConfig = {
             use: {
                 loader: 'babel-loader',
                 options: {
-                    presets: ['env', 'es2015', 'react']
+                    presets: ['env', 'es2015', 'react', '@babel/preset-typescript']
                 }
             }
         }]
