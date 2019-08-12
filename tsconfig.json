@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "esModuleInterop": true,
+        "jsx": "react",
+        "target": "es5", // 将ts编译成什么规范
+        "allowJs": true // 是否允许js语法在ts中
+        // "typeRoots": [ // 表示在哪个目录下找声明文件
+        //     "./typings/modules"
+        // ]
+    },
+    "include": [
+        "./src/*" // 编译包含哪些文件
+    ],
+    "exclude": [
+        "./node_modules/" // 编译除去哪些文件
+    ]
+}

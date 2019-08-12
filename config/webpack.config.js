@@ -28,6 +28,12 @@ const webpackConfig = {
                     presets: ['env', 'es2015', 'react']
                 }
             }
+        }, {
+            test: /\.tsx?$/,
+            use: {
+                // loader: 'ts-loader'
+                loader: 'awesome-typescript-loader'
+            }
         }]
     },
     resolve: {
