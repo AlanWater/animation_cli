@@ -26,7 +26,8 @@ class App extends Component<any, AppState> {
     componentDidMount() {
         let substanceList = [];
         for (let idx = 0; idx < 99; idx++) {
-            let substance = new Substance(document.querySelector('.panel'), 'circle');
+            let type = idx % 2 == 0 ? 'circle' : 'triangle',
+                substance = new Substance(document.querySelector('.panel'), type);
             substance.run();
             substanceList.push(substance);
         }
