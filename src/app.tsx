@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Substance from './substance/substance';
 
 class App extends Component {
     render() {
